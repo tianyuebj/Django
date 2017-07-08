@@ -25,7 +25,7 @@ SECRET_KEY = '*4^l6wly^c2^#cr#9pb-i*23$je=t&td4c6p76$=ofnzbyr!xc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -144,21 +144,17 @@ BOOTSTRAP3= {
 if os.getcwd()=='/app':
     import dj_database_url
     DATABASES={
-        'default':dj_database_url.config(default='postgres://localhost')
+        'default':dj_database_url.config(dafault='postgres://localhost')
     }
 
-    
     SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO','https')
 
-    
     ALLOWED_HOSTS=['*']
 
-
-    BASE_DIR=os.path.dirname(os.path.abspath(__file__))
+    BASE_DIR =os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT='staticfiles'
     STATICFILES_DIRS=(
         os.path.join(BASE_DIR,'static'),
     )
-    
 
     
